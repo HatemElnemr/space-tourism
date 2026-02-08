@@ -6,7 +6,6 @@ import Heading from "./Heading";
 
 export default function Destination() {
   const [destinationIndex, setDestinationIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const destination = date.destinations[destinationIndex];
 
