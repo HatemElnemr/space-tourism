@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home({ onExplore }) {
   return (
-    <div className="py-32 px-[165px] flex justify-between items-end  max-xl:px-10 max-xl:flex-col max-xl:items-center gap-[66px] max-sm:p-6">
+    <div className="py-32 px-[165px] flex justify-between min-h-screen items-end  max-xl:px-10 max-xl:flex-col max-xl:items-center gap-[66px] max-sm:p-6">
       <div className="w-[540px] flex flex-col gap-6 h-[343px] max-xl:text-center max-xl:w-[512px] max-sm:w-[327px]">
         <p className="text-[#D0D6F9] font-barlow-condensed text-[28px] tracking-[4px] max-sm:text-[16px]">SO, YOU WANT TO TRAVEL TO</p>
         <h2 className="font-bellefair text-[144px] max-sm:text-[80px]">SPACE</h2>
