@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import date from "../data.json";
 import Heading from "./Heading";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css"
 
 export default function CrewPage() {
   const [crewIndex, setCrewIndex] = useState(0);
@@ -29,10 +31,16 @@ export default function CrewPage() {
           </ul>
         </div>
         <div className="relative py-[30px] w-1/2 max-xl:w-full flex justify-center max-xl:py-0 max-sm:py-[5px]">
-          <img
-            src={crewMember.images.webp}
-            alt="Crew Member"
-            className="[mask-image:linear-gradient(to_bottom,black_90%,transparent_99%)] w-full h-[676px] max-xl:w-[447px] max-xl:h-[560px] max-sm:w-[271px] max-sm:h-[340px]"
+          <LazyLoadImage
+            key={crewMember.name}
+              src={crewMember.images.png} // the source of the image
+              placeholderSrc={crewMember.images.webp}
+              alt="Crew Member" // alternative text for the image
+              effect="blur" // the blur effect
+              width="100%"
+              height="100%"
+              loading="lazy"
+            className="[mask-image:linear-gradient(to_bottom,black_90%,transparent_99%)] w-full h-[676px] max-xl:w-[447px] max-xl:mx-auto max-xl:h-[560px] max-sm:w-[271px] max-sm:h-[340px]"
           />
         </div>
       </div>

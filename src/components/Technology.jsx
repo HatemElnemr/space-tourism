@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Heading from "./Heading";
 import data from "../data.json";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Technology() {
   const [techIndex, setTechIndex] = useState(0);
@@ -16,10 +18,16 @@ export default function Technology() {
 
       <div className="mt-6 w-full flex gap-8 max-xl:flex-col max-xl:pt-16 max-xl:text-center">
         <div className="w-screen h-[357px] xl:hidden ">
-          <img
-            src={technology.images.landscape}
-            alt="Technology"
-            className="w-screen max-xl:h-[357px] absolute left-[2px] max-sm:h-[258px] "
+          <LazyLoadImage
+            key={technology.name}
+            src={technology.images.landscape} // the source of the image
+            placeholderSrc={technology.images.landscape}
+            alt="Technology" // alternative text for the image
+            effect="blur" // the blur effect
+            width="100%"
+            height="100%"
+            loading="lazy"
+            className="w-screen max-xl:h-[357px] absolute max-xl:-ml-[38px] max-sm:-ml-[23px] max-sm:h-[258px] "
           />
         </div>
         <div className="flex items-center gap-16 max-xl:flex-col max-xl:gap-10">
@@ -51,9 +59,15 @@ export default function Technology() {
           </div>
         </div>
         <div className="py-[67px] max-xl:hidden">
-          <img
-            src={technology.images.portrait}
-            alt="Technology"
+          <LazyLoadImage
+            key={technology.name}
+            src={technology.images.portrait} // the source of the image
+            placeholderSrc={technology.images.portrait}
+            alt="Technology" // alternative text for the image
+            effect="blur" // the blur effect
+            width="100%"
+            height="100%"
+            loading="lazy"
             className="h-[600px] w-[608px]"
           />
         </div>
